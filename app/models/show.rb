@@ -4,13 +4,14 @@ class Show < ActiveRecord::Base
     has_many :actors, through: :characters
     belongs_to :network
 
-    def actor_list
+    def actors_list
  
         array =[]
         self.characters.each do |obj|
-
-            # binding.pry
+            array << obj.actor.full_name
         end 
         array
     end
+
+    
 end
